@@ -11,6 +11,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { CourseFormComponent } from './course-form/course-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [CoursesComponent, CourseFormComponent],
@@ -23,6 +26,9 @@ import { CourseFormComponent } from './course-form/course-form.component';
     MatProgressSpinnerModule,
     SharedModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class CoursesModule {}
