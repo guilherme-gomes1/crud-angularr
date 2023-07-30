@@ -15,12 +15,12 @@ export class CoursesService {
   list() {
     return this.httpClient.get<Course[]>(this.API).pipe(
       first(),
-      delay(0),
+      delay(1000),
       tap((courses) => console.log(courses))
     );
   }
 
-  save(record: Course): Observable<Course> {
+  save(record: Partial<Course>): Observable<Course> {
     return this.httpClient.post<Course>(this.API, record);
   }
 }

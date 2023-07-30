@@ -16,9 +16,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CoursesListComponent } from './courses-list/courses-list.component';
 
 @NgModule({
-  declarations: [CoursesComponent, CourseFormComponent],
+  declarations: [CoursesComponent, CourseFormComponent, CoursesListComponent],
   imports: [
     CommonModule,
     CoursesRoutingModule,
