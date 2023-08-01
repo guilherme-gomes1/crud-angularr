@@ -1,3 +1,4 @@
+import { ConfirmationDialogComponent } from './../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../model/course';
 import { CoursesService } from '../../services/courses.service';
@@ -54,13 +55,21 @@ export class CoursesComponent implements OnInit {
   }
 
   onRemove(course: Course) {
-    this.coursesService.remove(course._id).subscribe(
-      () => {
-        this.refresh();
-        this.showSnackBar('Curso deletado com sucesso', 'X');
-      },
-      (error) => this.onError('Error ao tentar remover curso')
-    );
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover esse curso?',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.coursesService.remove(course._id).subscribe(
+          () => {
+            this.refresh();
+            this.showSnackBar('Curso deletado com sucesso', 'X');
+          },
+          (error) => this.onError('Error ao tentar remover curso')
+        );
+      }
+    });
   }
 
   private showSnackBar(message: string, action: string) {
