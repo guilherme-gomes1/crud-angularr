@@ -26,6 +26,7 @@ export class CourseResolver implements Resolve<Course> {
       _id: '',
       name: '',
       category: '',
+      lessons: [],
     });
   }
 }
